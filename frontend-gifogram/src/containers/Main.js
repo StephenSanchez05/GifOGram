@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Login from '../components/Login';
+import Login from '../components/User/Login';
+import User from '../components/User/User'
 import { loginUser } from '../actions/userActions';
 
 
@@ -12,6 +13,9 @@ class Main extends Component {
             <div>
                 {this.props.error ? <p>{JSON.stringify(this.props.error).replace(/[{}\[\]"]+/g,"")}</p> : null}
                 <Login loginUser={this.props.loginUser}/>
+                <User user={this.props.loginUser} />
+                {console.log(this.props.user)}
+
             </div>
         )
     }

@@ -4,8 +4,6 @@ import React, {Component} from 'react';
 class Login extends Component {
     state ={
         username: "",
-        password: ""
-
     }
 
     handleChange = event => {
@@ -18,10 +16,9 @@ class Login extends Component {
     handleSubmit = event => {
         event.preventDefault()
         console.log(this.props)
-        this.props.loginUser({username: this.state.username, password: this.state.password})
+        this.props.loginUser({username: this.state.username})
         this.setState({
             username: "",
-            password: ""
         })
 
     }
@@ -31,8 +28,6 @@ class Login extends Component {
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     User Name:&nbsp; &nbsp;             
                     <input type="username" name="username" value={this.state.username} onChange={(event) => this.handleChange(event)} /><br />
-                    Password:&nbsp; &nbsp;
-                    <input type="password" name="password" value={this.state.password} onChange={(event) => this.handleChange(event)} /><br />
                     <input type="submit" />
                 </form>
             </div>
