@@ -10,7 +10,7 @@ class Main extends Component {
     render() {
         return(
             <div>
-                {this.props.error ? <p>{JSON.stringify(this.props.error)}</p> : null}
+                {this.props.error ? <p>{JSON.stringify(this.props.error).replace(/[{}\[\]"]+/g,"")}</p> : null}
                 <Login loginUser={this.props.loginUser}/>
             </div>
         )

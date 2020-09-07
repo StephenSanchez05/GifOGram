@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             render json: {user: @fUser}
         else
             render json: {
-                error: {error: "Username or Password incorrect"}, status: 404
+                error: {error: " Username or Password incorrect"}, status: 404
             }
         end
 
