@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class Login extends Component {
     state ={
         username: "",
@@ -14,9 +15,10 @@ class Login extends Component {
 
     }
 
-    handleSumbit = event => {
+    handleSubmit = event => {
         event.preventDefault()
-        this.props.loginUser({name: this.state.name, password: this.state.password})
+        console.log(this.props)
+        this.props.loginUser({username: this.state.username, password: this.state.password})
         this.setState({
             username: "",
             password: ""
@@ -26,12 +28,11 @@ class Login extends Component {
     render () {
         return (
             <div>
-                
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(event) => this.handleSubmit(event)}>
                     User Name:&nbsp; &nbsp;             
-                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange} /><br />
+                    <input type="username" name="username" value={this.state.username} onChange={(event) => this.handleChange(event)} /><br />
                     Password:&nbsp; &nbsp;
-                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /><br />
+                    <input type="password" name="password" value={this.state.password} onChange={(event) => this.handleChange(event)} /><br />
                     <input type="submit" />
                 </form>
             </div>

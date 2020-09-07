@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Login from '../components/Login';
+import { loginUser } from '../actions/userActions';
+
 
 class Main extends Component {
 
@@ -7,17 +10,20 @@ class Main extends Component {
     render() {
         return(
             <div>
+                {this.props.error ? <p>{JSON.stringify(this.props.error)}</p> : null}
                 <Login loginUser={this.props.loginUser}/>
-
             </div>
         )
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        loginUser: user => dispatch({type: "LOGIN_USER", user})
+        error: state.loginError
     }
 }
 
-export default connect(null, mapDispatchToProps)(Main)
+
+
+
+export default connect(mapStateToProps, { loginUser })(Main)
