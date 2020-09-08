@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 class BlogInput extends Component {
     state = {
-        post: ''
+        post: '',
+        user_id: ''
     }
 
     handleChange = event => {
@@ -13,7 +14,7 @@ class BlogInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addPost({post: this.state.pest, user_id: this.props.userid})
+        this.props.addPost({post: this.state.post, user_id: this.props.userid})
         this.setState({
             post: ''
         });

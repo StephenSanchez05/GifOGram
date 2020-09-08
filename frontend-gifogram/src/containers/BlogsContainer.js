@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BlogInput from '../components/Blog/BlogInput';
-import Blogs from '../components/Blog/Blogs';
+
 import { connect } from 'react-redux'
 
 class BlogsContainer extends Component {
@@ -8,22 +8,21 @@ class BlogsContainer extends Component {
     render () {
         return (
             <div>
-                <BlogInput
-                addPost={this.props.addPost}
-                // userid={this.props.user.id}
-                // 
-                />
-                <Blogs
-                blogs={this.props.blogs}
-                // userid={this.props.user.id}                
-                />
+                {this.props.user?.user?.id ? (<BlogInput
+                addPost={this.props.addPost} 
+                userid={this.props.user.user.id}/>)  :  null }
+
             </div>
+
         )
     }
 }
 
-const mapStateToProps = ({blogs}) => {
-    return {blogs}
+const mapStateToProps = (state) => {
+    console.log(state);
+    return { 
+        user: state.user
+    }
 }
 
 const mapDispatchToProps = dispatch => ({

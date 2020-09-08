@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Main from './containers/Main';
 import BlogsContainer from './containers/BlogsContainer';
-import { loginUser } from './actions/userActions';
 import './index.css';
 
 class App extends Component {
@@ -10,7 +9,6 @@ class App extends Component {
   return (
     <div className="App">
       <Main />
-      <BlogsContainer />
     </div>
   );
 }

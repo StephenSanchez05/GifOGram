@@ -8,10 +8,7 @@ class User extends Component {
 
         return (
             <div>
-                <li>
-                {user.username}
                 <BlogsContainer user={user} />
-                </li>
             </div>
         )
     }
