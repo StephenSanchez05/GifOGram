@@ -2,13 +2,15 @@ class BlogsController < ApplicationController
 
 
     def index
+        @post = Blogs.all
+        render json:score
     end
 
 
     def create
-        @user = User.find(session[:user_id])
+        # @user = User.find(params[:id])
         @post = Blog.create(blog_params)
-        @post.update(user_id: @user.id)
+        # @post.update(user_id: @user.id)
         if @post.valid?
             render json:@post
         else
@@ -17,8 +19,7 @@ class BlogsController < ApplicationController
     end
 
     def edit
-        @user = User.find(session[:user_id])
-        @post = Blog.find(params[:id])
+    end
 
 
 

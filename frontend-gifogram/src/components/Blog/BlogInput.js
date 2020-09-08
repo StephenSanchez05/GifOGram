@@ -14,7 +14,7 @@ class BlogInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addPost({post: this.state.post, user_id: this.props.userid})
+        this.props.postBlog({post: this.state.post, user_id: this.props.userid})
         this.setState({
             post: ''
         });

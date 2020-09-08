@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BlogInput from '../components/Blog/BlogInput';
+import { postBlog } from '../actions/blogActions';
 
 import { connect } from 'react-redux'
 
@@ -9,7 +10,7 @@ class BlogsContainer extends Component {
         return (
             <div>
                 {this.props.user?.user?.id ? (<BlogInput
-                addPost={this.props.addPost} 
+                postBlog={this.props.postBlog} 
                 userid={this.props.user.user.id}/>)  :  null }
 
             </div>
@@ -25,8 +26,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    addPost: blog => dispatch({type: 'ADD_POST', blog})
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogsContainer)
+export default connect(mapStateToProps, { postBlog })(BlogsContainer)
