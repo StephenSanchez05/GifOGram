@@ -12,7 +12,8 @@ class Main extends Component {
         return(
             <div>
                 {this.props.error ? <p>{JSON.stringify(this.props.error).replace(/[{}\[\]"]+/g,"")}</p> : null}
-                <Login loginUser={this.props.loginUser}/>
+                {this.props.user?.user?.id ?  null: (
+                <Login loginUser={this.props.loginUser}/>)}
                 <User user={this.props.loginUser} />
             </div>
         )
@@ -21,6 +22,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
     return {
+        user: state.user,
         error: state.loginError
     }
 }

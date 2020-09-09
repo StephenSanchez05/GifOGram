@@ -1,9 +1,8 @@
 import React from 'react'
 
         const Blogs = props => {
-            console.log(props.blog)
             const listBlogs = props.blog.map((blog, index) => {
-               return <li key={index}>{blog.post} - Written by {blog.user.username}</li>;
+               return <p key={index}>{blog.post}<br />- Written by {blog.user.username}</p>;
             });
 
         return (

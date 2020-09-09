@@ -24,7 +24,7 @@ class BlogInput extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} >
-                    <label>Write a Post!</label>
+                    <label>Write a Post!  </label>
                     <input
                     type="post"
                     value={this.state.post}

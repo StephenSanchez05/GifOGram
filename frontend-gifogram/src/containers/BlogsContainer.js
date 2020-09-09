@@ -7,14 +7,20 @@ import { connect } from 'react-redux'
 
 class BlogsContainer extends Component {
 
+  
     render () {
         return (
             <div>
-                {this.props.user?.user?.id ? (<BlogInput
+                {this.props.user?.user?.id ? 
+                (<BlogInput
+                getBlogs={this.fetchBlogs}
                 postBlog={this.props.postBlog} 
-                userid={this.props.user.user.id}/>)  :  null }
-                {this.props.user?.user?.id ? (<Blogs
-                blog={this.props.blogs}/>)  :  null }
+                userid={this.props.user.user.id}/>)  
+                :  null }
+                {this.props.user?.user?.id ? 
+                (<Blogs
+                blog={this.props.blogs}/>)  
+                :  null }
 
             </div>
 
