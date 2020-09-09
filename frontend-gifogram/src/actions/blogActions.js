@@ -1,7 +1,6 @@
 export const postBlog = (blog) => {
     return(dispatch) => {
-        console.log(blog.post)
-        fetch("http://localhost:3001/blogs", {
+        fetch('http://localhost:3001/blogs', {
             "method": 'POST',
             headers: {
                 "Content-Type":"application/json"
@@ -18,3 +17,13 @@ export const postBlog = (blog) => {
             })
         }
 }
+
+export const fetchBlogs = () => {
+    return(dispatch) => {
+        fetch("http://localhost:3001/blogs")
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: 'GRAB_POST', blogs: data})
+            })
+        }
+    }

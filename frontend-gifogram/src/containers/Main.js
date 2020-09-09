@@ -14,8 +14,6 @@ class Main extends Component {
                 {this.props.error ? <p>{JSON.stringify(this.props.error).replace(/[{}\[\]"]+/g,"")}</p> : null}
                 <Login loginUser={this.props.loginUser}/>
                 <User user={this.props.loginUser} />
-                {console.log(this.props.user)}
-
             </div>
         )
     }

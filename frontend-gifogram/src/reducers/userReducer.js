@@ -2,7 +2,7 @@ const userReducer = (state={user: {}, blogs: [], loggedIn: false, error: ""}, ac
 
     switch(action.type) {
         case 'LOGIN_USER':
-            return {user: action.user, loggedIn: true, blogs: []}
+            return {...state, user: action.user, loggedIn: true}
 
         case 'LOGIN_ERROR':
             return {...state, loginError: action.error}
@@ -10,6 +10,9 @@ const userReducer = (state={user: {}, blogs: [], loggedIn: false, error: ""}, ac
         case 'ADD_POST':
             state.blogs.push(action.blog);
             return {...state}
+
+        case 'GRAB_POST':
+            return { ...state, blogs: action.blogs}
 
 
         default:
