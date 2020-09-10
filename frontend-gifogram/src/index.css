@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+
+img.animated-gif{
+        width: auto;
+        height: 90px;
+}
+
+
 .blog {
   color: white;
   border-radius: 25px;

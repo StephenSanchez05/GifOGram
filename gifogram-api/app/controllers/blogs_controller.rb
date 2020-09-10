@@ -1,6 +1,5 @@
 class BlogsController < ApplicationController
 
-
     def index
         @post = Blog.all
         render json: @post, each_serializer: BlogSerializer
@@ -14,9 +13,6 @@ class BlogsController < ApplicationController
         else
             render json: {:errors => @post.errors.full_messages}
         end
-    end
-
-    def edit
     end
 
 

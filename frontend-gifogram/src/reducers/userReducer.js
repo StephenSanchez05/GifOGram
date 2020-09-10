@@ -1,4 +1,4 @@
-const userReducer = (state={user: {}, blogs: [], loggedIn: false, error: ""}, action) => {
+const userReducer = (state={user: {}, blogs: [], gifs: [], loggedIn: false, error: ""}, action) => {
 
     switch(action.type) {
         case 'LOGIN_USER':
@@ -13,6 +13,13 @@ const userReducer = (state={user: {}, blogs: [], loggedIn: false, error: ""}, ac
 
         case 'GRAB_POST':
             return { ...state, blogs: action.blogs}
+
+        case 'ADD_GIF':
+            state.gifs.push(action.gifs);
+            return {...state}
+
+        case 'GRAB_GIF':
+            return { ...state, gifs: action.gifs}
 
 
         default:
