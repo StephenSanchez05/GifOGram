@@ -19,7 +19,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props.blogs)
   return (
     <div className="App">
       <Nav />

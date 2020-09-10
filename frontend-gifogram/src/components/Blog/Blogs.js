@@ -2,13 +2,14 @@ import React from 'react'
 
         const Blogs = props => {
             const listBlogs = props.blog.map((blog, index) => {
-               return <p key={index}>{blog.post}<br />- Written by {blog.user.username}</p>;
+                return <p className="blog" key={index}>{blog.post}<br />- Written by {blog.user.username}</p>
             });
+        
 
         return (
             <div>
                 <ul>
-                    {listBlogs}
+                {listBlogs}
                 </ul>
             </div>
         )
