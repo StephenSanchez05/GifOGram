@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Login from '../components/User/Login';
-import User from '../components/User/User'
+import User from '../components/User/User';
+
 import { loginUser } from '../actions/userActions';
 
 

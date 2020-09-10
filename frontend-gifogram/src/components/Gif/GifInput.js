@@ -22,15 +22,17 @@ class GifInput extends Component {
         fetch(`https://api.giphy.com/v1/gifs/search?q=${this.state.query}&api_key=dc6zaTOxFJmzC&rating=g&limit=1`)
           .then(res => res.json())
           .then(({data}) => {
+              console.log(data);
             this.setState({ gifs: data.map( gif => ( gif.images.original.url ) ) })
           })
       }
 
 
         handleSubmit = event => {
-            event.preventDefault();
-            this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid})
             this.fetchGifs();
+            event.preventDefault();
+            console.log(this.state)
+            this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid})
             this.setState({
                 query: '',
                 blog_id: ''

@@ -17,10 +17,9 @@ class BlogsContainer extends Component {
                 postBlog={this.props.postBlog} 
                 userid={this.props.user.user.id}/>)  
                 :  null }
-                {this.props.user?.user?.id ? 
-                (<Blogs
-                blog={this.props.blogs}/>)  
-                :  null }
+                <Blogs
+                blog={this.props.blogs}/> 
+
 
             </div>
 
