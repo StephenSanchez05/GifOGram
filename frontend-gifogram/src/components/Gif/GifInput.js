@@ -29,8 +29,8 @@ class GifInput extends Component {
 
 
         handleSubmit = event => {
-            this.fetchGifs();
             event.preventDefault();
+            this.fetchGifs();
             console.log(this.state)
             this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid})
             this.setState({
