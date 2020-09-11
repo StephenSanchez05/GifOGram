@@ -19,11 +19,12 @@ class GifInput extends Component {
     }
 
     fetchGifs = () => {
+        
         fetch(`https://api.giphy.com/v1/gifs/search?q=${this.state.query}&api_key=dc6zaTOxFJmzC&rating=g&limit=1`)
           .then(res => res.json())
           .then(({data}) => {
-              console.log(data);
             this.setState({ gifs: data.map( gif => ( gif.images.original.url ) ) })
+            console.log(this.state);
           })
       }
 
@@ -32,7 +33,9 @@ class GifInput extends Component {
             event.preventDefault();
             this.fetchGifs();
             console.log(this.state)
+            setTimeout(() => {
             this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid})
+            }, 100);
             this.setState({
                 query: '',
                 blog_id: ''
