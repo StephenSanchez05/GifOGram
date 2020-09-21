@@ -24,7 +24,11 @@ class GifInput extends Component {
           .then(res => res.json())
           .then(({data}) => {
             this.setState({ gifs: data.map( gif => ( gif.images.original.url ) ) })
-            console.log(this.state);
+            this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid});
+            this.setState({
+                query: '',
+                blog_id: ''
+            });
           })
       }
 
@@ -32,14 +36,6 @@ class GifInput extends Component {
         handleSubmit = event => {
             event.preventDefault();
             this.fetchGifs();
-            console.log(this.state)
-            setTimeout(() => {
-            this.props.postGif({url: this.state.gifs[0], blog_id: this.props.blogid})
-            }, 100);
-            this.setState({
-                query: '',
-                blog_id: ''
-            });
         }
 
         
